@@ -1,0 +1,12 @@
+[
+  {
+    "assetType": "Melding",
+    "impact": "gevolgen",
+    "contact_info": {
+      "name": "functionaris_1",
+      "role": "Functionaris gegevensbescherming",
+      "email": "functionaris1@securityoffice.com",
+      "phone": "088-1234567"
+    }
+  }
+]
