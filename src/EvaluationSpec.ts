@@ -21,6 +21,23 @@ describe('An employee of the security office ', () => {
       );
     });
 
+    it('should throw an error when an alert is sent by an incorrect Sender (Violation rule 15)', async () => {
+      const incorrectPrerequisitesAlert = new Alert(correctAlertData, correctPrerequisites, dataSubject);
+      const incorrectPrerequisiteReponse: any = incorrectPrerequisitesAlert.send();
+
+      expect(incorrectPrerequisiteReponse).rejects.toThrow(
+        new InvalidActionError()
+      );
+    });
+
+    it('should throw an error when an alert is sent to an incorrect receiver (Violation rule 15)', async () => {
+      const incorrectPrerequisitesAlert = new Alert(correctAlertData, correctPrerequisites, incorrectDataSubject);
+      const incorrectPrerequisiteReponse: any = incorrectPrerequisitesAlert.send();
+      expect(incorrectPrerequisiteReponse).rejects.toThrow(
+        new IncorrectReceiverError()
+      );
+    });
+
     it('should add all relevant information to the alert message (Correct rule 17)', async () => {
       const alert = new Alert(correctAlertData, correctPrerequisites, dataSubject)
       const correctAlertResponse: any = alert.send();
